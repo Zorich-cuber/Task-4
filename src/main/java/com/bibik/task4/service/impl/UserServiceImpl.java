@@ -8,7 +8,7 @@ import com.bibik.task4.exception.ServiceException;
 import com.bibik.task4.exception.ValidationException;
 import com.bibik.task4.service.UserService;
 import com.bibik.task4.util.PasswordHasher;
-import com.bibik.task4.validator.Validator;
+import com.bibik.task4.validator.InputValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     public User authenticate(String login, String password) throws ServiceException {
         LOG.debug("Authenticating user: {}", login);
 
-        if (!Validator.isValidLogin(login)) {
+        if (!InputValidator.isValidLogin(login)) {
             LOG.warn("Invalid login format: {}", login);
             throw new ServiceException("Invalid login format");
         }
@@ -59,17 +59,17 @@ public class UserServiceImpl implements UserService {
             throws ValidationException, ServiceException {
         LOG.info("Registering new user: {}", login);
 
-        if (!Validator.isValidLogin(login)) {
+        if (!InputValidator.isValidLogin(login)) {
             LOG.warn("Invalid login during registration: {}", login);
             throw new ValidationException("Invalid login format", "login");
         }
 
-        if (!Validator.isValidPassword(password)) {
+        if (!InputValidator.isValidPassword(password)) {
             LOG.warn("Invalid password during registration for user: {}", login);
             throw new ValidationException("Invalid password format", "password");
         }
 
-        if (!Validator.isValidEmail(email)) {
+        if (!InputValidator.isValidEmail(email)) {
             LOG.warn("Invalid email during registration: {}", email);
             throw new ValidationException("Invalid email format", "email");
         }

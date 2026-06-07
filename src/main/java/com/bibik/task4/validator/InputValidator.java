@@ -6,9 +6,9 @@ import org.apache.logging.log4j.Logger;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
-public final class Validator {
+public final class InputValidator {
 
-    private static final Logger LOG = LogManager.getLogger(Validator.class);
+    private static final Logger LOG = LogManager.getLogger(InputValidator.class);
 
 
     private static final Pattern LOGIN_PATTERN;
@@ -42,7 +42,7 @@ public final class Validator {
         LOG.info("Validator static initialization completed");
     }
 
-    private Validator() {
+    private InputValidator() {
         throw new UnsupportedOperationException("Utility class cannot be instantiated");
     }
 
