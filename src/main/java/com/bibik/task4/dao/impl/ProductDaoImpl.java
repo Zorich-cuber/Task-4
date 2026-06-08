@@ -48,7 +48,7 @@ public class ProductDaoImpl implements ProductDao {
             LOG.error("Error creating product: {}", product.getName(), e);
             throw new DaoException("Error creating product: " + product.getName(), e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn);  
         }
     }
 
@@ -74,7 +74,7 @@ public class ProductDaoImpl implements ProductDao {
             LOG.error("Error finding all products", e);
             throw new DaoException("Error finding all products", e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn);  
         }
     }
 
@@ -97,7 +97,7 @@ public class ProductDaoImpl implements ProductDao {
             LOG.error("Error finding product by id: {}", id, e);
             throw new DaoException("Error finding product by id: " + id, e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn);  
         }
         LOG.debug("Product not found: {}", id);
         return Optional.empty();
@@ -122,7 +122,7 @@ public class ProductDaoImpl implements ProductDao {
             LOG.error("Error counting products", e);
             throw new DaoException("Error counting products", e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn); 
         }
     }
 
