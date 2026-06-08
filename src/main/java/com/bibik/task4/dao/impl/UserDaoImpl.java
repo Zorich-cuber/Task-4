@@ -51,7 +51,7 @@ public class UserDaoImpl implements UserDao {
             LOG.error("Error creating user: {}", user.getLogin(), e);
             throw new DaoException("Error creating user: " + user.getLogin(), e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn);  
         }
     }
 
@@ -74,7 +74,7 @@ public class UserDaoImpl implements UserDao {
             LOG.error("Error finding user by login: {}", login, e);
             throw new DaoException("Error finding user by login: " + login, e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn); 
         }
         LOG.debug("User not found: {}", login);
         return Optional.empty();
@@ -99,7 +99,7 @@ public class UserDaoImpl implements UserDao {
             LOG.error("Error finding user by id: {}", id, e);
             throw new DaoException("Error finding user by id: " + id, e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn); 
         }
         LOG.debug("User not found: {}", id);
         return Optional.empty();
@@ -127,7 +127,7 @@ public class UserDaoImpl implements UserDao {
             LOG.error("Error finding all users", e);
             throw new DaoException("Error finding all users", e);
         } finally {
-            ConnectionPool.getInstance().releaseConnection(conn);  // ← ОБЯЗАТЕЛЬНО!
+            ConnectionPool.getInstance().releaseConnection(conn);  
         }
     }
 
